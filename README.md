@@ -1,4 +1,4 @@
-# FAST: FrAme-multiplexed SpatioTemporal Learning Strategy
+# VALID: A self-supervised Volumetric biomedicAL Imaging Denoiser
 <p align="center">
   <img src="./resource/logo_lr.png" alt="VALID Logo" width="600"/>
 
