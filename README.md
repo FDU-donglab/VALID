@@ -85,7 +85,7 @@ Customize parameters by modifying `params.json`:
 ```python
 {
     "epochs": 100,
-    "train_frame_num": 99999,
+    "train_frame_num": 99999, # The max frame number for training.
     "w_patch": 256,
     "h_patch": 256,
     "z_patch": 64, # If the GPU memory is insufficient, it is recommended to reduce this parameter.
@@ -103,20 +103,20 @@ Customize parameters by modifying `params.json`:
 Default parameters: # Unless there are special requirements, it is not recommended to make any modifications.
 ```python
 {
-            "data_extension": "tif",
-            "withGT": False,
-            "lr": 0.0001,
-            "amsgrad": True,
-            "base_features": 16,
-            "n_groups": 4,
-            "train": True, # or False
-            "test": False, # or True
-            "data_type": "3D",
-            "seed": 3407,
-            "clip_gradients": 20.0,
-            "mode": "train", # or "test"
-            "batch_size": 1
-        }
+    "data_extension": "tif",
+    "withGT": False,
+    "lr": 0.0001,
+    "amsgrad": True,
+    "base_features": 16,
+    "n_groups": 4,
+    "train": True, # or False
+    "test": False, # or True
+    "data_type": "3D",
+    "seed": 3407,
+    "clip_gradients": 20.0,
+    "mode": "train", # or "test"
+    "batch_size": 1
+}
 ```
 ## 🤝 Contributing
 
