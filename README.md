@@ -82,7 +82,7 @@ FAST/
 
 Customize parameters by modifying `params.json`:
 
-```json
+```python
 {
     "epochs": 100,
     "train_frame_num": 99999,
@@ -101,7 +101,7 @@ Customize parameters by modifying `params.json`:
 }
 ```
 Default parameters: # Unless there are special requirements, it is not recommended to make any modifications.
-```json
+```python
 {
             "data_extension": "tif",
             "withGT": False,
