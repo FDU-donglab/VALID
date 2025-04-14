@@ -1,8 +1,7 @@
 # VALID: A self-supervised Volumetric biomedicAL Imaging Denoiser
 <p align="center">
-  <div style="background-color: #222222; display: inline-block;">
     <img src="./resource/logo_lr.png" alt="VALID Logo" width="600"/>
-  </div>
+</p>
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-orange)
