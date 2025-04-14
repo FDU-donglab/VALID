@@ -27,28 +27,21 @@ Advancing Biomedical Optical Volumetric Image Denoising via Self-Supervised Orth
 # Create and activate environment
 conda create -n VALID python == 3.9.0
 conda activate VALID
+# configrate pytorch-GPU with CUDA (CUDA version aligned with your hardware) from [here](https://pytorch.org/get-started/locally/).
 # Install packages
 pip install -r requirements.txt
 ```
 
 ## 🚀 Quick Start
 
-### Command Line Mode
+### Command Line Mode to perform VALID GUI
 ```bash
-# Training mode
-python main.py --config_path "./params.json"
-
-# Testing mode (with pretrained model)
-python main.py --config_path "./checkpoint/model_name/config.json" --test_path "./data/test/test_dir"
+python run.py
 ```
 
 ### GUI Mode
 ```bash
-# Launch training GUI
-python Train_GUI.py
-
-# Launch testing GUI
-python Test_GUI.py
+Click Training and Testing buttons to perform selected pipeline.
 ```
 
 ## 📁 Directory Structure
@@ -60,27 +53,24 @@ FAST/
 │   ├── test/          # Testing data
 │   └── train/         # Training data
 ├── datasets/          # Dataset processing
-│   ├── dataAug.py     # Data augmentation
-│   ├── data_process.py
-│   └── dataset.py     # Dataset classes
-├── environment.yml    # Environment configuration
-├── FAST_logo.png     # Project logo
-├── log.txt           # Runtime logs
-├── main.py           # Main entry point
+│   ├── data_patchify.py     # Data patchify
+│   ├── data_patchify_indices.py     # Data patchify indices
+│   ├── data_process.py # Data processing
+│   ├── dataset_fs.py     # Data classes using file system (for small single data)
+│   ├── dataset_h5.py     # Data classes using h5 file (for large single data, notably, don't stop the progress while the h5 file is writing.)
+│   └── sampling.py     # Tetris sampling and low-frequency 3D Hessian calculating
 ├── models/           # Model architectures
-│   ├── baseLayers.py
-│   ├── loss/         # Loss functions
+│   ├── loss/         # Some ready-made implementations
 │   │   └── loss.py
-│   └── Unet_Lite.py  # Main model
-├── params.json       # Configuration file
-├── result/           # Output results
-│   └── model_name
-├── Test_GUI.py       # GUI for testing
-├── test_in_gui.py
-├── test.py          # Testing script
-├── Train_GUI.py      # GUI for training
-├── train_in_gui.py
-├── train.py         # Training script
+│   ├── network.py    # implementation of HessianConstraintLoss3D and CRN init.
+│   └── model_CRN.py  # baselayers
+├── resource/    # logo, icon and more
+├── jsons/    # Automatic parameter backup
+├── result/    # Default result saving path
+├── requirements.txt    # Environment configuration
+├── run.py          # The entry point for launching the GUI
+├── test_pipeline.py      # GUI and test pipeline
+├── train_pipeline.py # GUI and train pipeline
 └── utils/           # Utility functions
     ├── config.py    # Configuration utils
     ├── fileSplit.py
@@ -90,27 +80,44 @@ FAST/
 
 ## ⚙️ Configuration
 
-Customize model parameters by modifying `params.json`:
+Customize parameters by modifying `params.json`:
 
 ```json
 {
-    "data_extension": "tif",
     "epochs": 100,
-    "miniBatch_size": 4,
-    "lr": 0.0001,
-    "weight_decay": 0.9,
-    "gpu_ids": "0",
-    "train_frames": 2000,
-    "data_type": "3D",
-    "denoising_strategy": "FAST",
-    "seed": 123,
-    "save_freq": 25,
-    "clip_gradients": 20.0,
-    "num_workers": 0,
-    "batch_size": 1
+    "train_frame_num": 99999,
+    "w_patch": 256,
+    "h_patch": 256,
+    "z_patch": 64, # If the GPU memory is insufficient, it is recommended to reduce this parameter.
+    "w_overlap": 0.1,
+    "h_overlap": 0.1,
+    "z_overlap": 0.1,
+    "patch_num": -1, # set this as -1, using all the patches.
+    "gpu_ids": [0], # set [0,1,2,3] to use DP with multi-GPU.
+    "save_freq": 10, 
+    "train_folder": r"./data/train",
+    "num_workers": 0, # set 0 for windows.
+    "weight_reg": 0.0001, # weight of HessianConstraintLoss3D; it can be adjusted to a larger one to accommodate complex noise. 
 }
 ```
-
+Default parameters: # Unless there are special requirements, it is not recommended to make any modifications.
+```json
+{
+            "data_extension": "tif",
+            "withGT": False,
+            "lr": 0.0001,
+            "amsgrad": True,
+            "base_features": 16,
+            "n_groups": 4,
+            "train": True, # or False
+            "test": False, # or True
+            "data_type": "3D",
+            "seed": 3407,
+            "clip_gradients": 20.0,
+            "mode": "train", # or "test"
+            "batch_size": 1
+        }
+```
 ## 🤝 Contributing
 
 We welcome contributions, particularly:
@@ -152,20 +159,15 @@ See [LICENSE](LICENSE) file for full text.
 
 ## 📮 Contact
 
-- 📧 Email: yiqunwang22@fudan.edu.cn
-- 🌐 Project Page: [GitHub Repository](https://github.com/FDU-donglab/FAST)
-
+- 📧 Email: guyj23@m.fudan.edu.cn
+- 📚 Project Page: [GitHub Repository](https://github.com/FDU-donglab/VALID)
+- 🌐 Personal homepage: [It's me](https://guyuanjie.com)
 ---
 
 ### Citation
 
-If you use FAST in your research, please cite our paper:
+If you use VALID in your research, please cite our paper:
 
 ```bibtex
-@article{wang2024real,
-    title={Real-time self-supervised denoising for high-speed fluorescence neural imaging},
-    author={Wang, Yiqun and Others},
-    journal={https://doi.org/10.21203/rs.3.rs-6101322/v1},
-    year={2025}
-}
+coming soon
 ```
