@@ -6,7 +6,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-orange)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Advancing optical volumetric imaging denoising paradigm via self-supervised orthogonal learning. (https://doi.org/10.21203/rs.3.rs-6101322/v1)
+Advancing Biomedical Optical Volumetric Image Denoising via Self-Supervised Orthogonal Learning (https://doi.org/10.21203/rs.3.rs-6101322/v1)
 
 ## ✨ Key Features
 
