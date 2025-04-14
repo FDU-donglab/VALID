@@ -10,10 +10,10 @@ Advancing Biomedical Optical Volumetric Image Denoising via Self-Supervised Orth
 
 ## ✨ Key Features
 
-- 🚀 **Real-Time Processing**: >1000 fps denoising (hardware-dependent)
-- 🤖 **Self-Supervised Learning**: Eliminates need for clean ground truth
-- 🔄 **Spatiotemporal Optimization**: Frame-multiplexing enhances SNR
-- 📊 **High Adaptability**: Suitable for various fluorescence imaging data
+- 🚀 **Zero-shot Volumetric denoising**
+- 🤖 **Structured-friendly Orthogonal Learningg**
+- 🔄 **High Adaptability and Generalization**
+- 📊 **GUI is available for both training and testing pipelines**
 
 ## 🛠 Installation
 
