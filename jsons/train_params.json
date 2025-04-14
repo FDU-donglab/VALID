@@ -1,0 +1,31 @@
+{
+    "epochs": 100,
+    "train_frame_num": 10000,
+    "w_patch": 224,
+    "h_patch": 224,
+    "z_patch": 224,
+    "w_overlap": 0.1,
+    "h_overlap": 0.1,
+    "z_overlap": 0.1,
+    "patch_num": -1,
+    "gpu_ids": [
+        0
+    ],
+    "save_freq": 10,
+    "train_folder": "./data/demo_noisy_data/",
+    "num_workers": 0,
+    "data_extension": "tif",
+    "withGT": false,
+    "lr": 0.0001,
+    "amsgrad": true,
+    "base_features": 16,
+    "n_groups": 4,
+    "train": true,
+    "test": false,
+    "data_type": "3D",
+    "denoising_strategy": "N2N",
+    "seed": 3407,
+    "clip_gradients": 100.0,
+    "mode": "train",
+    "batch_size": 1
+}
