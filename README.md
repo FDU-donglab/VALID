@@ -1,6 +1,6 @@
 # VALID: A self-supervised Volumetric biomedicAL Imaging Denoiser
-<div style="background-color: #222222; padding: 20px; display: inline-block;">
-  <p align="center">
+<p align="center">
+  <div style="background-color: #222222; display: inline-block;">
     <img src="./resource/logo_lr.png" alt="VALID Logo" width="600"/>
   </div>
 
