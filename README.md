@@ -46,7 +46,7 @@ Click Training and Testing buttons to perform selected pipeline.
 
 ## 📁 Directory Structure
 ```
-FAST/
+VALID/
 ├── checkpoint/         # Model checkpoints
 │   └── model_name
 ├── data/              # Data directory
