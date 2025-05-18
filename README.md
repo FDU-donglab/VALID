@@ -168,6 +168,11 @@ See [LICENSE](LICENSE) file for full text.
 
 If you use VALID in your research, please cite our paper:
 
-```bibtex
-coming soon
+```
+@article{gu2025Enhancing,
+    title={Enhancing Biomedical Optical Volumetric Imaging via Self-Supervised Orthogonal Learning},
+    author={Yuanjie Gu and Others},
+    journal={https://doi.org/10.1101/2025.05.16.654259},
+    year={2025}
+}
 ```
